@@ -1,9 +1,9 @@
 
+import 'package:coach_nearest/screens/tab_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 
-import 'shared/styles/ThemeOfData.dart';
 import 'layout/home_screen.dart';
 
 void main() {

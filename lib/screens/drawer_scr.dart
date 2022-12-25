@@ -9,6 +9,11 @@ class drawer_scr extends StatelessWidget {
    ,1  // settings ];
   ];
 
+  static const int Cateogry = 0;
+  static const int Setting = 1;
+
+  bool isSelected = true;
+
   drawer_scr(this.ScreenSelected);
 
   @override
@@ -40,7 +45,7 @@ class drawer_scr extends StatelessWidget {
            leading: Icon(Icons.home),
            title:Text("Home"),
            onTap: (){
-                 ScreenSelected(Screens[0]);
+              ScreenSelected(Cateogry);
            },
          ),
          Divider(color: Colors.black,),
@@ -48,8 +53,8 @@ class drawer_scr extends StatelessWidget {
            leading: Icon(Icons.settings),
            title:Text("Settings"),
            onTap: (){
-               ScreenSelected(Screens[1]);
-           },
+             ScreenSelected(Setting);
+               },
          )
          ],
        ),

@@ -1,7 +1,7 @@
 import 'package:coach_nearest/screens/category_design.dart';
 import 'package:flutter/material.dart';
 import 'package:simple_gradient_text/simple_gradient_text.dart';
-
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import '../models/category_item.dart';
 
 class category_screen extends StatelessWidget {
@@ -22,10 +22,33 @@ class category_screen extends StatelessWidget {
         children: [
           Padding(
             padding: EdgeInsets.symmetric(vertical: 10),
-            child: GradientText("Select Category",style: TextStyle(fontSize: 30,fontWeight: FontWeight.bold), colors: const [
-              Colors.black,
-              Colors.black
-            ],),
+            child: Container(
+              width: double.infinity,
+              color: Colors.white38,
+              child: Center(
+                child: GradientText(AppLocalizations.of(context)!.select_category,style: TextStyle(fontSize: 30,fontWeight: FontWeight.bold), colors: const [
+                  Colors.black,
+                  Colors.black,
+                  Colors.blueGrey,  Colors.black,
+                  Colors.blueGrey,  Colors.black,
+                  Colors.blueGrey,  Colors.black,
+                  Colors.blueGrey,  Colors.black,
+                  Colors.black,Colors.black,
+                  Colors.blueGrey,  Colors.black,
+                  Colors.blueGrey,  Colors.black,
+                  Colors.blueGrey,  Colors.black,
+                  Colors.black,Colors.black,
+                  Colors.blueGrey,  Colors.black,
+                  Colors.blueGrey,  Colors.black,
+                  Colors.blueGrey,  Colors.black,
+                  Colors.black,Colors.black,
+                  Colors.blueGrey,  Colors.black,
+                  Colors.blueGrey,  Colors.black,
+                  Colors.blueGrey,  Colors.black,
+                  Colors.black,
+                ],),
+              ),
+            ),
           ),
           Expanded(
             child: GridView.builder(

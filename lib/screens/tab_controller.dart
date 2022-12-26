@@ -1,6 +1,8 @@
+import 'package:coach_nearest/main.dart';
 import 'package:coach_nearest/models/json_api_news/NewData.dart';
 import 'package:coach_nearest/netwrork/remote/api_manager.dart';
 import 'package:coach_nearest/screens/new_card.dart';
+import 'package:coach_nearest/screens/settings_screen.dart';
 import 'package:coach_nearest/screens/tab_item.dart';
 import 'package:flashy_tab_bar2/flashy_tab_bar2.dart';
 import 'package:flutter/material.dart';
@@ -8,6 +10,7 @@ import 'package:lottie/lottie.dart';
 
 import '../generated/assets.dart';
 import '../models/json_api_sources/sources_api.dart';
+import '../shared/translate_assets/language.dart';
 
 class tab_controller extends StatefulWidget {
 
@@ -24,8 +27,20 @@ class _tab_controllerState extends State<tab_controller> {
   int selectedIndex = 0;
   bool isSelected = false;
 
+
   @override
   Widget build(BuildContext context) {
+
+   //  String lang = "";
+   //
+   // String? langCode (Language? language) {
+   //    if(language != null){
+   //      MyApp.setLocale(context, Locale(language.languageCode,""));
+   //      lang = language.languageCode;
+   //      return lang;
+   //    }
+   //  };
+    Language? language;
     return Column(
       children: [
         DefaultTabController(
@@ -50,7 +65,7 @@ class _tab_controllerState extends State<tab_controller> {
           ),
         ),
         FutureBuilder<NewData>(
-        future: api_manager.getNewsData(widget.sources[selectedIndex].id??""),
+        future: api_manager.getNewsData(widget.sources[selectedIndex].id??"",settings_screen.lang),
             builder: ( context, snapshot) {
 
           var news = snapshot.data?.articles?? [];

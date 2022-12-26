@@ -2,6 +2,8 @@
 
 
 import 'package:coach_nearest/screens/tab_controller.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:coach_nearest/shared/providers/appbar_icon_search.dart';
 import 'package:coach_nearest/shared/providers/appbar_title.dart';
 import 'package:flutter/material.dart';
@@ -26,11 +28,34 @@ void main() {
   );
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
+  @override
+  State<MyApp> createState() => _MyAppState();
+
+  static  setLocale(BuildContext context,Locale newlocale){
+    _MyAppState? state = context.findAncestorStateOfType<_MyAppState>();
+    state?.setLocale(newlocale);
+  }
+}
+
+class _MyAppState extends State<MyApp> {
+
+  Locale? _locale;
+
+  setLocale(Locale locale){
+    setState(() {
+      _locale = locale;
+    });
+  }
+
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+   locale: _locale,
         initialRoute: Home_Screen.routeName,
+      localizationsDelegates: AppLocalizations.localizationsDelegates,
+      supportedLocales: AppLocalizations.supportedLocales,
         routes: {
           Home_Screen.routeName: (_) => Home_Screen(),
         },

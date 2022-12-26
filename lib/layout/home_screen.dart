@@ -1,5 +1,5 @@
 import 'dart:async';
-
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:coach_nearest/generated/assets.dart';
 import 'package:coach_nearest/models/category_item.dart';
 import 'package:coach_nearest/screens/drawer_scr.dart';
@@ -37,9 +37,10 @@ class _Home_ScreenState extends State<Home_Screen> {
           appBar: AppBar(
             backgroundColor: Color(0xff5f967c),
             title:
+                //
                 Consumer<appbar_title>(builder: (context, appbartitle, child) {
               if (this.number == 0) {
-                return Text(appbartitle.changeTitle("Home"));
+                return Text(appbartitle.changeTitle(AppLocalizations.of(context)!.home));
               } else if (this.number == 1 &&
                   search_Icon.iconSearch.icon == Icons.search) {
                 return appBarTitle;

@@ -1,3 +1,5 @@
+import 'package:flutter/cupertino.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 
 class Language{
@@ -9,12 +11,14 @@ class Language{
 
   Language(this.id, this.flag, this.name, this.languageCode);
 
+  static String arabic = "arabic";
+  static String english = "english";
 
 
-  static List<Language> languageList(){
+  static List<Language> languageList(BuildContext context){
     return <Language>  [
-      Language(1, "🇪🇬", "عربي", "ar"),
-      Language(2, "🇺🇸", "English", "en")
+      Language(1, "🇪🇬", AppLocalizations.of(context)!.arabic, "ar"),
+      Language(2, "🇺🇸", AppLocalizations.of(context)!.english, "en")
     ];
   }
 

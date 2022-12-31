@@ -31,7 +31,7 @@ class api_manager{
   }
 
 
-  static Future<NewData> getNewsData(String sourceId,String lang) async{
+  static Future<NewData> getNewsData(String sourceId,String lang,) async{
 
     Uri URL = Uri.https(
         Base_URL,
@@ -39,6 +39,27 @@ class api_manager{
         {"apiKey":my_apiKey,
         "sources":sourceId, // to get data by id from api
         "language":lang, // to get data by id from api
+        }
+    );
+
+    Response sources = await http.get(URL);
+
+    var json = jsonDecode(sources.body);
+
+    NewData newData = NewData.fromJson(json);
+
+    return newData;
+
+  }
+
+  static Future<NewData> searchNewsData(String lang,String quary) async{
+
+    Uri URL = Uri.https(
+        Base_URL,
+        End_Point_Everything,
+        {"apiKey":my_apiKey, // to get data by id from api
+          "language":lang,
+          "q":quary// to get data by id from api
         }
     );
 

@@ -1,3 +1,4 @@
+import 'package:coach_nearest/layout/home_screen.dart';
 import 'package:coach_nearest/main.dart';
 import 'package:coach_nearest/models/json_api_news/NewData.dart';
 import 'package:coach_nearest/netwrork/remote/api_manager.dart';
@@ -26,6 +27,9 @@ class _tab_controllerState extends State<tab_controller> {
 
   int selectedIndex = 0;
   bool isSelected = false;
+
+  String text = "bitcoin";
+
 
 
   @override
@@ -65,7 +69,7 @@ class _tab_controllerState extends State<tab_controller> {
           ),
         ),
         FutureBuilder<NewData>(
-        future: api_manager.getNewsData(widget.sources[selectedIndex].id??"",settings_screen.lang),
+        future: api_manager.getNewsData(widget.sources[selectedIndex].id??"",settings_screen.lang,),
             builder: ( context, snapshot) {
 
           var news = snapshot.data?.articles?? [];

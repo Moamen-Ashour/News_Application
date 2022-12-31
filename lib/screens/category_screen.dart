@@ -14,7 +14,7 @@ class category_screen extends StatelessWidget {
   Widget build(BuildContext context) {
 
 
-    var Category_data = CategoryData.getCategories();
+    var Category_data = CategoryData.getCategories(context);
 
     return Container(
       margin: EdgeInsets.symmetric(horizontal: 30),

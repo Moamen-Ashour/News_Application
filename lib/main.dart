@@ -1,6 +1,7 @@
 
 
 
+import 'package:coach_nearest/screens/search.dart';
 import 'package:coach_nearest/screens/tab_controller.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -58,6 +59,7 @@ class _MyAppState extends State<MyApp> {
       supportedLocales: AppLocalizations.supportedLocales,
         routes: {
           Home_Screen.routeName: (_) => Home_Screen(),
+          SearchPage.routeName: (_) => SearchPage(),
         },
         debugShowCheckedModeBanner: false,
         // theme: ThemeOfData.LightTheme,

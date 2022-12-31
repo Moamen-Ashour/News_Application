@@ -1,0 +1,29 @@
+
+
+
+
+{
+
+    "setting":"Settings",
+    "home":"Home",
+    "select_category":"Select Category",
+    "language":"Language",
+    "arabic":"Arabic",
+    "english":"English",
+    "sports":"Sports",
+    "bussines":"Bussines",
+    "general":"General",
+    "entertainment":"Entertainment",
+    "science":"Science",
+    "health":"Health",
+    "games":"Games",
+    "searchtitle":"Search",
+    "technology":"Technology",
+    "search":"Search...",
+    "empaty":"",
+    "sidebar":"Menu"
+
+
+
+
+}

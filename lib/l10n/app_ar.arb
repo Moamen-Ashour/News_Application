@@ -1,0 +1,28 @@
+
+
+
+
+{
+
+    "setting":"الاعدادات",
+    "home":"الرئيسية",
+    "select_category":"تصفح الاخبار",
+    "language":"اللغة",
+    "arabic":"عربي",
+        "english":"إنجليزي",
+            "sports":"رياضة",
+            "bussines":"اقتصاد",
+            "general":"متنوع",
+            "entertainment":"ترفيه",
+            "science":"علوم",
+            "health":"صحة",
+            "games":"العاب",
+            "technology":"تكنولوجيا",
+    "search":"ابحث عن...",
+        "searchtitle":"البحث",
+    "empaty":"",
+                   "sidebar":"االقائمة"
+
+
+
+}

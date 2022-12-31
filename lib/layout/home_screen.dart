@@ -1,5 +1,8 @@
 import 'dart:async';
-
+import 'dart:convert';
+import 'package:coach_nearest/netwrork/remote/api_manager.dart';
+import 'package:coach_nearest/screens/search.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:coach_nearest/generated/assets.dart';
 import 'package:coach_nearest/models/category_item.dart';
 import 'package:coach_nearest/screens/drawer_scr.dart';
@@ -7,25 +10,35 @@ import 'package:coach_nearest/screens/home_screen.dart';
 import 'package:coach_nearest/shared/providers/appbar_icon_search.dart';
 import 'package:coach_nearest/shared/providers/appbar_title.dart';
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
 
+import '../models/json_api_news/NewData.dart';
 import '../screens/category_screen.dart';
+import '../screens/new_card.dart';
 import '../screens/settings_screen.dart';
 import '../screens/tab_controller.dart';
 
 class Home_Screen extends StatefulWidget {
   static const String routeName = "Home_Screen";
 
+
+  static TextEditingController searchText = TextEditingController();
+
   @override
   State<Home_Screen> createState() => _Home_ScreenState();
 }
 
 class _Home_ScreenState extends State<Home_Screen> {
+
+
+
+
   @override
   Widget build(BuildContext context) {
     var search_Icon = Provider.of<search_icon>(context);
     var appbar_titl = Provider.of<appbar_title>(context);
-    Widget appBarTitle = Text(appbar_titl.changeTitle("Settings"));
+    Widget appBarTitle = Text(appbar_titl.changeTitle(AppLocalizations.of(context)!.home));
 
     return Container(
       decoration: BoxDecoration(
@@ -37,15 +50,18 @@ class _Home_ScreenState extends State<Home_Screen> {
           appBar: AppBar(
             backgroundColor: Color(0xff5f967c),
             title:
+                //
                 Consumer<appbar_title>(builder: (context, appbartitle, child) {
-              if (this.number == 0) {
-                return Text(appbartitle.changeTitle("Home"));
-              } else if (this.number == 1 &&
-                  search_Icon.iconSearch.icon == Icons.search) {
+              // if (this.number == 0) {
+              //   return Text(appbartitle.changeTitle(AppLocalizations.of(context)!.home));
+              // }
+               if (this.number == drawer_scr.Cateogry &&
+                  search_icon.iconSearch.icon == Icons.search) {
                 return appBarTitle;
-              } else if (this.number == 1 &&
-                  search_Icon.iconSearch.icon == Icons.close) {
+              } else if (this.number == drawer_scr.Cateogry &&
+                  search_icon.iconSearch.icon == Icons.close) {
                 return appBarTitle = TextField(
+                  controller: Home_Screen.searchText,
                     style: TextStyle(
                       color: Colors.black,
                     ),
@@ -62,9 +78,11 @@ class _Home_ScreenState extends State<Home_Screen> {
                           borderRadius: BorderRadius.circular(50),
                           borderSide: BorderSide(width: 3, color: Colors.black),
                         )));
-              } else {
-                return Text(appbartitle.changeTitle("Home"));
-              }
+              } else if(this.number != drawer_scr.Cateogry){
+                return appBarTitle = Text(appbar_titl.changeTitle(AppLocalizations.of(context)!.setting));
+              }else {
+                 return appBarTitle;
+               }
             }),
             // leading: Lottie.asset(Assets.jsonLottieReading),
             actions: [
@@ -73,14 +91,11 @@ class _Home_ScreenState extends State<Home_Screen> {
                   // child:
                   child: IconButton(
                       onPressed: () {
-                        if (search_Icon.iconSearch.icon == Icons.search) {
-                          search_Icon.changeIcon(Icon(Icons.close));
-                        } else if (search_Icon.iconSearch.icon !=
-                            Icons.search) {
-                          search_Icon.changeIcon(Icon(Icons.search));
+                        if(this.number == drawer_scr.Cateogry) {
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=>SearchPage()));
                         }
                       },
-                      icon: search_Icon.iconSearch))
+                      icon: search_icon.iconSearch))
             ],
             centerTitle: true,
             elevation: 0.0,
